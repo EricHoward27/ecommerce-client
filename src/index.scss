@@ -1,1 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+
+.footer-position {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+}
+
+.container-position {
+    min-height: 80vh;
+}
