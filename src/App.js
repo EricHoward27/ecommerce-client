@@ -13,6 +13,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import './index.scss'
 // import custom components
 import Home from './components/Home/Home'
+import DisplayProduct from './components/DisplayProduct/DisplayProduct'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -68,7 +69,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          {/* Custom Component Routes */}
           <Route path='/' component={Home} exact />
+          <Route path='/products/:id' render={() => (
+            <DisplayProduct msgAlert={this.msgAlert} setUser={this.setUser} />
+          )} />
           <Footer />
         </main>
       </Fragment>

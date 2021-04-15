@@ -4,12 +4,12 @@ import './index.scss'
 import './bootstrap.min.css'
 
 import App from './App'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const appJsx = (
-  <HashRouter>
+  <Router>
     <App />
-  </HashRouter>
+  </Router>
 )
 
 ReactDOM.render(appJsx, document.getElementById('root'))
