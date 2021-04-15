@@ -32,7 +32,7 @@ const Header = ({ user }) => (
           { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
           { alwaysOptions }
           { user ? authenticatedOptions : unauthenticatedOptions }
-          <Nav.Link href="/cart">Cart</Nav.Link>
+          <Nav.Link href="/cart"><i className="fas fa-shopping-cart"></i>Cart</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

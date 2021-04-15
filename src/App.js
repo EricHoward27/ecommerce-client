@@ -11,7 +11,8 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import './index.scss'
-
+// import custom components
+import Home from './components/Home/Home'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -67,6 +68,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          <Route path='/' component={Home} exact />
           <Footer />
         </main>
       </Fragment>
