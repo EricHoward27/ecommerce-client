@@ -70,9 +70,11 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           {/* Custom Component Routes */}
-          <Route path='/' component={Home} exact />
-          <Route path='/products/:id' render={() => (
-            <DisplayProduct msgAlert={this.msgAlert} setUser={this.setUser} />
+          <AuthenticatedRoute user={user} exact path='/' render={() => (
+            <Home msgAlert={this.msgAlert} user={user}/>
+          )}/>
+          <AuthenticatedRoute user={user} exact path='/products/:id' render={() => (
+            <DisplayProduct msgAlert={this.msgAlert} user={user} />
           )} />
           <Footer />
         </main>
