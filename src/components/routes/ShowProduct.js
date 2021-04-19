@@ -27,7 +27,7 @@ class ShowProduct extends Component {
     // make a request for a survey
     showProduct(match.params.id, user)
     // set the survey state to the data that return from api call
-      .then(res => this.setState({ product: res.data }))
+      .then(res => this.setState({ product: res.data.product }))
       .then(() => msgAlert({
         heading: 'Product Fetched Succesfully',
         message: 'Product is being viewed.',
@@ -91,12 +91,12 @@ class ShowProduct extends Component {
         <h4>Category: {product.category}</h4>
         <h4>Price: {product.price}</h4>
         <h4>Description: {product.description} </h4>
-        {(this.props.user._id === product.owner) ? (
+        {(this.props.user.id === product.owner) ? (
           <div>
             <Button onClick={this.handleDelete}>Delete Product</Button>
             <Link to={`/products/${product.id}/update`}>
               <Button >
-            Update
+                Update
               </Button>
             </Link>
           </div>
