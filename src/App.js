@@ -12,8 +12,11 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import './index.scss'
 // import custom components
-import Home from './components/Home/Home'
-import DisplayProduct from './components/DisplayProduct/DisplayProduct'
+import CreateProduct from './components/routes/CreateProduct'
+import ShowProduct from './components/routes/ShowProduct'
+import IndexProduct from './components/routes/IndexProduct'
+import UpdateProduct from './components/routes/UpdateProduct'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -70,11 +73,17 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           {/* Custom Component Routes */}
-          <AuthenticatedRoute user={user} exact path='/' render={() => (
-            <Home msgAlert={this.msgAlert} user={user}/>
-          )}/>
+          <AuthenticatedRoute user={user} path='/create-product' render={() => (
+            <CreateProduct msgAlert={this.msgAlert} user={user} />
+          )} />
           <AuthenticatedRoute user={user} exact path='/products/:id' render={() => (
-            <DisplayProduct msgAlert={this.msgAlert} user={user} />
+            <ShowProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/products' render={() => (
+            <IndexProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/products/:id/update' render={() => (
+            <UpdateProduct msgAlert={this.msgAlert} user={user} />
           )} />
           <Footer />
         </main>
