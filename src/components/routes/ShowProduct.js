@@ -91,12 +91,16 @@ class ShowProduct extends Component {
         <h4>Category: {product.category}</h4>
         <h4>Price: {product.price}</h4>
         <h4>Description: {product.description} </h4>
-        <Button onClick={this.handleDelete}>Delete Product</Button>
-        <Link to={`/products/${product.id}/update`}>
-          <Button >
+        {(this.props.user._id === product.owner) ? (
+          <div>
+            <Button onClick={this.handleDelete}>Delete Product</Button>
+            <Link to={`/products/${product.id}/update`}>
+              <Button >
             Update
-          </Button>
-        </Link>
+              </Button>
+            </Link>
+          </div>
+        ) : ''}
       </div>
     )
   }
